@@ -9,8 +9,16 @@ crearArchivo = (base) => {
         }
 
         fs.writeFile(`tablas/tabla-${base}.txt`, data, (err) => {
-            if (err) throw err;
+            if (err) {
+                reject(err);
+            } else {
+                resolve(`tabla-${base}.txt`);
+            }
             console.log('Archivo creado');
         });
     });
+};
+
+module.exports = {
+    crearArchivo
 };
