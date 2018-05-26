@@ -2,6 +2,12 @@ const fs = require('fs');
 
 crearArchivo = (base) => {
     return new Promise((resolve, reject) => {
+
+        if (!Number(base)) {
+            reject(`El valor introducido ${base} no es un número`);
+            return;
+        }
+
         let data = '';
 
         for (let i = 1; i <= 10; i++) {
@@ -14,7 +20,6 @@ crearArchivo = (base) => {
             } else {
                 resolve(`tabla-${base}.txt`);
             }
-            console.log('Archivo creado');
         });
     });
 };
