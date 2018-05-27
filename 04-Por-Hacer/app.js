@@ -25,6 +25,20 @@ switch (comando) {
 
     case 'actualizar':
         let actualizado = porHacer.actualizar(argv.descripcion, argv.completado);
+        if (actualizado) {
+            console.log('Registro actualizado');
+        } else {
+            console.log('Registro no actualizado');
+        }
+        break;
+
+    case 'borrar':
+        let borrado = porHacer.borrar(argv.descripcion);
+        if (borrado) {
+            console.log('Registro borrado');
+        } else {
+            console.log('Registro no borrado');
+        }
         break;
 
     default:
