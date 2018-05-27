@@ -1,16 +1,35 @@
 const fs = require('fs');
+const colors = require('colors');
 
-crearArchivo = (base) => {
+let listarTabla = (base, limite = 10) => {
+    console.log('-------------'.green);
+    console.log(`Tabla del ${base}`.green);
+    console.log('-------------'.green);
+
+    if (!Number(base) || !Number(limite)) {
+        reject(`El valor introducido ${base} o ${limite} no es un número`);
+        return;
+    }
+
+    let data = '';
+
+    for (let i = 1; i <= limite; i++) {
+        data += `${base} * ${i} = ${base*i}\n`;
+    }
+    console.log(data);
+}
+
+let crearArchivo = (base, limite = 10) => {
     return new Promise((resolve, reject) => {
 
-        if (!Number(base)) {
+        if (!Number(base) || !Number(limite)) {
             reject(`El valor introducido ${base} no es un número`);
             return;
         }
 
         let data = '';
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= limite; i++) {
             data += `${base} * ${i} = ${base*i}\n`;
         }
 
@@ -22,8 +41,9 @@ crearArchivo = (base) => {
             }
         });
     });
-};
+}
 
 module.exports = {
-    crearArchivo
+    crearArchivo,
+    listarTabla
 };
