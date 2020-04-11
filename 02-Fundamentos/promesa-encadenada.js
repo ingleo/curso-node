@@ -1,56 +1,64 @@
-let empleados = [{
+let empleados = [
+  {
     id: 1,
-    nombre: 'Leonardo'
-}, {
+    nombre: "Leonardo",
+  },
+  {
     id: 2,
-    nombre: 'Carlos'
-}, {
+    nombre: "Carlos",
+  },
+  {
     id: 3,
-    nombre: 'Cristian'
-}];
+    nombre: "Cristian",
+  },
+];
 
-
-let salarios = [{
+let salarios = [
+  {
     id: 1,
-    salario: 1000
-}, {
+    salario: 1000,
+  },
+  {
     id: 2,
-    salario: 2000
-}];
-
+    salario: 2000,
+  },
+];
 
 let getEmpleado = (id) => {
-    return new Promise((resolve, reject) => {
-        let empleadoDB = empleados.find(empleado => empleado.id === id);
+  return new Promise((resolve, reject) => {
+    let empleadoDB = empleados.find((empleado) => empleado.id === id);
 
-        if (!empleadoDB) {
-            reject(`No existe un empleado con el id ${ id }`);
-        } else {
-            resolve(empleadoDB);
-        }
-    });
-}
+    if (!empleadoDB) {
+      reject(`No existe un empleado con el id ${id}`);
+    } else {
+      resolve(empleadoDB);
+    }
+  });
+};
 
 let getSalario = (empleado) => {
-    return new Promise((resolve, reject) => {
-        let salarioDB = salarios.find(salario => salario.id === empleado.id);
+  return new Promise((resolve, reject) => {
+    let salarioDB = salarios.find((salario) => salario.id === empleado.id);
 
-        if (!salarioDB) {
-            reject(`No se encuentra salario para el usuario ${empleado.nombre}`);
-        } else {
-            resolve({
-                nombre: empleado.nombre,
-                salario: salarioDB.salario,
-                id: empleado.id
-            });
-        }
-    });
-}
+    if (!salarioDB) {
+      reject(`No se encuentra salario para el usuario ${empleado.nombre}`);
+    } else {
+      resolve({
+        nombre: empleado.nombre,
+        salario: salarioDB.salario,
+        id: empleado.id,
+      });
+    }
+  });
+};
 
-getEmpleado(3).then((empleado) => {
+getEmpleado(2)
+  .then((empleado) => {
     return getSalario(empleado);
-}).then((salario) => {
-    console.log(`EL salario de ${ salario.nombre }, es de ${salario.salario}`);
-}).catch((err) => {
+  })
+  .then((salario) => {
+    console.log(`EL salario de ${salario.nombre}, es de ${salario.salario}`);
+  })
+  .catch((err) => {
     console.log(err);
-});
+  });

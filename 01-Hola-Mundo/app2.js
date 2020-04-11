@@ -1,8 +1,8 @@
 function saludar(nombre) {
-    let mensaje = `Hola ${nombre}`;
-    return mensaje;
+  let mensaje = `Hola ${nombre}`;
+  return mensaje;
 }
 
-let saludo = saludar('Leonardo');
+let saludo = saludar("Leonardo");
 
 console.log(saludo);

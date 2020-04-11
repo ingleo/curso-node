@@ -21,6 +21,7 @@ const argv = require('yargs')
     .command('borrar', 'Borra una tarea de la lista', {
         descripcion
     })
+    .command('listar', 'Lista las tareas')
     .help()
     .argv;
 
