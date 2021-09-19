@@ -29,7 +29,11 @@ let deadpool = {
   getNombre2: () => {
     return `${this.nombre} ${this.apellido} - poder: ${this.poder}`;
   },
+  getNombre3: function() {
+    return `${this.nombre} ${this.apellido} - poder: ${this.poder}`;
+  }
 };
 
 console.log(deadpool.getNombre());
 console.log(deadpool.getNombre2());
+console.log(deadpool.getNombre3());

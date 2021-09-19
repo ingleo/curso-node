@@ -10,3 +10,6 @@ let deadpool = {
 let { nombre: primerNombre, apellido, poder } = deadpool;
 
 console.log(primerNombre, apellido, poder);
+
+console.log(deadpool.getNombre());
+
